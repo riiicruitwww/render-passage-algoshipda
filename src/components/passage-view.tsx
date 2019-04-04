@@ -7,6 +7,10 @@ const defaultPassageStyle: CSSProperties = {
   padding: '10px',
 };
 
-export default function Passage(props: IPassage): JSX.Element {
-  return <div style={defaultPassageStyle}>{props.view_tree.children.map(rendererMapper)}</div>;
+interface IPassageViewProps {
+  data: IPassage;
+}
+
+export default function Passage({ data: passage }: IPassageViewProps): JSX.Element {
+  return <div style={defaultPassageStyle}>{passage.view_tree.children.map(rendererMapper)}</div>;
 }

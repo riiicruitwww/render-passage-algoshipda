@@ -24,6 +24,10 @@ function messagesToTable({ children }: IMessages): ITable {
   return transformed;
 }
 
-export default function MessageView(props: IMessages) {
-  return <TableView {...messagesToTable(props)} />;
+interface IMessagesViewProps {
+  data: IMessages;
+}
+
+export default function MessagesView({data: props}: IMessagesViewProps) {
+  return <TableView data={messagesToTable(props)} />;
 }

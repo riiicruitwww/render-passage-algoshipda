@@ -3,7 +3,7 @@ const TSLintPlugin = require('tslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/app.tsx'),
+  entry: path.resolve(__dirname, './src/index.tsx'),
   mode: 'development',
   devtool: 'source-map',
   module: {

@@ -50,14 +50,18 @@ function splitChunk(chunk: string, segments: ISegment[]): JSX.Element[] {
   return str;
 }
 
+interface IChunkViewProps {
+  data: IChunkRef;
+  chunk: string;
+}
+
 export default connect(
-  // @TODO: any 문제푸는 UI 넣을 떄 수정해야함
-  (state: any, { type, chunk_id }: IChunkRef) => {
+  (state: IAppState, { data: { type, chunk_id } }: IChunkViewProps) => {
     return {
-      chunk: state.package.chunk_map[chunk_id][type],
+      chunk: state.chunkMap[chunk_id][type],
     };
   },
-)(function ChunkView(props: {chunk: string} & IChunkRef): JSX.Element {
-  const splittedChunk = splitChunk(props.chunk, props.children);
+)(function ChunkView({ data, chunk }: IChunkViewProps): JSX.Element {
+  const splittedChunk = splitChunk(chunk, data.children);
   return <div style={defaultChunkStyle}>{splittedChunk}</div>;
 });

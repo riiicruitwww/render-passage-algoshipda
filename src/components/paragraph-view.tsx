@@ -7,8 +7,12 @@ const defaultParagraphStyle: CSSProperties = {
     boxSizing: 'content-box',
 };
 
-export default function(props: IParagraph): JSX.Element {
-  const { style, children } = props;
+interface IParagraphViewProps {
+  data: IParagraph;
+}
+
+export default function({ data: paragraph }: IParagraphViewProps): JSX.Element {
+  const { style, children } = paragraph;
   const modifiedStyle: CSSProperties = {
     ...defaultParagraphStyle,
     textAlign: style.text_align,
