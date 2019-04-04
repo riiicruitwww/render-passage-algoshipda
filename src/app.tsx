@@ -1,20 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import NoticePassage from './components/notice-passage';
+
 import { Provider } from 'react-redux';
 
 import './assets/reset.scss';
 import { createStore, AnyAction, Store } from 'redux';
 
-function reducer(state = '', action: AnyAction) {
+import axios from 'axios';
+
+function reducer(state: any, action: AnyAction) {
   return state;
 }
 
-function init() {
-  const store: Store = createStore(reducer, 'hello');
+async function init() {
+
+  const data: any = await axios.get('/data').then(({ data }) => data);
+
+  const store: Store = createStore(reducer, data.package.chunk_map);
+
   ReactDOM.render(
     <Provider store={store}>
-      <div title="hello">Hello World</div>,
+      <NoticePassage {...data.package.question_passage_box.passages[0]} />
     </Provider>,
     document.querySelector('.app'),
   );

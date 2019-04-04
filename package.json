@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/riiicruitwww/render-passage-algoshipda#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -27,6 +28,7 @@
     "rxjs": "^6.4.0"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/express": "^4.16.1",
     "@types/jest": "^24.0.11",
     "@types/react": "^16.8.10",
@@ -48,13 +50,15 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },
-  "jest":{
+  "jest": {
     "transform": {
       "^.+\\.ts$": "ts-jest"
     },
     "testRegex": "\\.spec\\.ts$",
     "moduleFileExtensions": [
-      "ts", "js", "tsx"
+      "ts",
+      "js",
+      "tsx"
     ],
     "globals": {
       "ts-jest": {
