@@ -19,7 +19,7 @@ async function init() {
 
   const data: any = await axios.get('/data').then((res: any) => res.data);
 
-  const store: Store = createStore(reducer, data.package.chunk_map);
+  const store: Store = createStore(reducer, data);
 
   const passages = data.package.question_passage_box.passages
             .map((p: IPassage, i: number) => <Passage key={i} {...p} />);

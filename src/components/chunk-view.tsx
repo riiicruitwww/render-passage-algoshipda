@@ -35,7 +35,7 @@ function splitChunk(chunk: string, segments: ISegment[]): JSX.Element[] {
   const str: JSX.Element[] = segments.map((seg: ISegment, i: number) => {
     const {font_color, font_name, font_size, styles, begin, offset} = seg.data;
 
-    const decoratedStyle: CSSProperties = {
+    const modifidedStyle: CSSProperties = {
       ...defaultSplittedStyle,
       color: toRGB(font_color),
       fontFamily: font_name,
@@ -43,7 +43,7 @@ function splitChunk(chunk: string, segments: ISegment[]): JSX.Element[] {
       ...mergeSegmentStyles(styles),
     };
 
-    return <span style={decoratedStyle} key={i}>
+    return <span style={modifidedStyle} key={i}>
       {chunk.substring(begin, begin + offset) || ' '}
     </span>;
   });
@@ -51,9 +51,10 @@ function splitChunk(chunk: string, segments: ISegment[]): JSX.Element[] {
 }
 
 export default connect(
-  (chunkMap: ChunkMap, { type, chunk_id }: IChunkRef) => {
+  // @TODO: any 문제푸는 UI 넣을 떄 수정해야함
+  (state: any, { type, chunk_id }: IChunkRef) => {
     return {
-      chunk: chunkMap[chunk_id][type],
+      chunk: state.package.chunk_map[chunk_id][type],
     };
   },
 )(function ChunkView(props: {chunk: string} & IChunkRef): JSX.Element {
