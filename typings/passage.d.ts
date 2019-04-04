@@ -1,17 +1,27 @@
 declare type PassageType = 'notice' | 'form' | 'online chat';
 declare type ViewTreeName = 'root' | 'paragraph' | 'table'
-  | 'chunk_ref' | 'segment' | 'cell' | 'message';
+  | 'chunk_ref' | 'segment' | 'cell' | 'messages' | 'message';
 declare type RiiidFontColor = 'black';
 declare type RiiidFontSize = 'm';
+declare type SegmentStyle = 'bold' | 'underline';
 
 declare interface IRStyle {
   text_align?: 'left' | 'center' | 'right',
   numbering?: string,
+}
 
+declare type IChunk = {
+  eqid: string;
+  id: number;
+  image_en: string;
+  image_kr: string;
+  sound_en: string;
+  text_en: string;
+  text_kr: string;
 }
 
 declare type ChunkMap = {
-  [key: number]: IChunkRef;
+  [key: number]: IChunk;
 }
 
 declare interface IViewTreeItem {
@@ -41,7 +51,7 @@ declare interface ITableAttrs {
 
 declare interface ITable extends IViewTreeItem {
   name: 'table';
-  style: IRStyle;
+  style?: IRStyle;
   table_attrs: ITableAttrs;
   children: ICell[];
 }
@@ -57,6 +67,11 @@ declare interface IMessage extends IViewTreeItem {
   data: IMessageData;
 }
 
+declare interface IMessages extends IViewTreeItem {
+  name: 'messages',
+  children: IMessage[];
+}
+
 declare interface IChunkRef extends IViewTreeItem {
   name: 'chunk_ref';
   type: 'text_en';
@@ -65,7 +80,7 @@ declare interface IChunkRef extends IViewTreeItem {
 }
 
 declare interface ISegmentData {
-  styles: string[];
+  styles: SegmentStyle[];
   begin: number;
   offset: number;
   font_color: [number, number, number];
@@ -91,4 +106,12 @@ declare interface IPassage {
 
 declare interface INoticePassage extends IPassage {
   type_of: 'notice';
+}
+
+declare interface IFormPassage extends IPassage {
+  type_of: 'form';
+}
+
+declare interface IOnlineChatPassage extends IPassage {
+  type_of: 'online chat';
 }
