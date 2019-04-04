@@ -5,7 +5,7 @@ const defaultTableStyle: CSSProperties = {
   width: '100%',
 };
 
-function buildTable({ table_attrs, children }: ITable) {
+function buildTable({ table_attrs, children }: ITable): JSX.Element[] {
   const table: JSX.Element[] = [];
   const { num_rows: r, num_cols: c, ratio, has_border } = table_attrs;
 

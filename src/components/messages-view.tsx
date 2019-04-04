@@ -13,7 +13,7 @@ function messagesToTable({ children }: IMessages): ITable {
     },
     name: 'table',
     children: [].concat(...children.map((msg) => {
-      return messageDataKeys.map((k) => {
+      return messageDataKeys.map((k: keyof IMessageData) => {
         return {
           name: 'cell',
           children: msg.data[k],

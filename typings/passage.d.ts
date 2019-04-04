@@ -1,8 +1,9 @@
 declare type PassageType = 'notice' | 'form' | 'online chat';
-declare type ViewTreeName = 'root' | 'paragraph' | 'table'
-  | 'chunk_ref' | 'segment' | 'cell' | 'messages' | 'message';
-declare type RiiidFontColor = 'black';
-declare type RiiidFontSize = 'm';
+declare type ViewTreeName = 'root' | 'paragraph'
+  | 'table' | 'chunk_ref' | 'segment'
+  | 'cell' | 'messages' | 'message';
+declare type RiiidFontColor = 'black'; // ??
+declare type RiiidFontSize = 'm'; // ??
 declare type SegmentStyle = 'bold' | 'underline';
 
 declare interface IRStyle {
@@ -11,6 +12,7 @@ declare interface IRStyle {
 }
 
 declare type IChunk = {
+  [k: string]: string | number;
   eqid: string;
   id: number;
   image_en: string;
@@ -74,7 +76,7 @@ declare interface IMessages extends IViewTreeItem {
 
 declare interface IChunkRef extends IViewTreeItem {
   name: 'chunk_ref';
-  type: 'text_en';
+  type: string;
   chunk_id: number;
   children: ISegment[];
 }
