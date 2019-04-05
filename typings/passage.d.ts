@@ -1,7 +1,8 @@
 declare type PassageType = 'notice' | 'form' | 'online chat';
 declare type ViewTreeName = 'root' | 'paragraph'
   | 'table' | 'chunk_ref' | 'segment'
-  | 'cell' | 'messages' | 'message';
+  | 'cell' | 'messages' | 'message'
+  | 'question_area' | 'choice_area' | 'choice'; 
 declare type RiiidFontColor = 'black'; // ??
 declare type RiiidFontSize = 'm'; // ??
 declare type SegmentStyle = 'bold' | 'underline';

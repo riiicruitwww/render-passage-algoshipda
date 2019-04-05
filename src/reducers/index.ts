@@ -4,6 +4,7 @@ const initState: IAppState = {
   fetched: false,
   chunkMap: {},
   passages: [],
+  questions: [],
 };
 
 const mapper: { [k in ActionType]: (state: IAppState, action: IAction) => IAppState } = {
@@ -12,6 +13,12 @@ const mapper: { [k in ActionType]: (state: IAppState, action: IAction) => IAppSt
       fetched: true,
       chunkMap: action.chunkMap,
       passages: action.passages,
+      questions: action.questions.map((q) => {
+        return {
+          ...q,
+          selected: -1,
+        };
+      }),
     };
   },
 };

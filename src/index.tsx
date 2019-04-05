@@ -18,6 +18,7 @@ function init() {
       store.dispatch(fetchDone(
         data.package.question_passage_box.passages,
         data.package.chunk_map,
+        data.package.questions,
       ));
     });
 

@@ -56,12 +56,28 @@ interface IChunkViewProps {
 }
 
 export default connect(
-  (state: IAppState, { data: { type, chunk_id } }: IChunkViewProps) => {
+  (state: IAppState, { data: { type, chunk_id } }: { data: IChunkRef }) => {
     return {
       chunk: state.chunkMap[chunk_id][type],
     };
   },
 )(function ChunkView({ data, chunk }: IChunkViewProps): JSX.Element {
-  const splittedChunk = splitChunk(chunk, data.children);
+  const children: ISegment[] = data.children.length > 0
+    ? data.children
+    : [{
+      name: 'segment',
+      data: {
+        styles: [],
+        begin: 0,
+        offset: 9999,
+        font_color: [0, 0, 0],
+        font_size: 10,
+        font_name: '',
+        riiid_font_color: 'black',
+        riiid_font_size: 'm',
+      },
+    }]; // dummy children;
+
+  const splittedChunk = splitChunk(chunk, children);
   return <div style={defaultChunkStyle}>{splittedChunk}</div>;
 });
