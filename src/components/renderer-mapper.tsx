@@ -41,12 +41,3 @@ export function rendererMapperWithParent<P>(parent: P): IViewTreeItemRenderer<IV
     }, i);
   };
 }
-
-export function rendererMapperWithMeta<T>(meta: T): IViewTreeItemRenderer<IViewTreeItemWithMeta<T>> {
-  return (item: IViewTreeItem, i: string | number): JSX.Element => {
-    return rendererMapper<IViewTreeItemWithMeta<T>>({
-      ...item,
-      meta,
-    }, i);
-  };
-}

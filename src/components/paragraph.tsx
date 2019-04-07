@@ -12,6 +12,6 @@ interface IParagraphViewProps {
 }
 
 export default function({ data: paragraph }: IParagraphViewProps): JSX.Element {
-  const { style, children } = paragraph;
+  const { children } = paragraph;
   return <div style={defaultParagraphStyle}>{children.map(rendererMapper) || '\n'}</div>;
 }

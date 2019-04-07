@@ -13,6 +13,7 @@
   },
   "include": [
     "./src",
-    "./typings"
+    "./typings",
+    "./test"
   ]
 }
