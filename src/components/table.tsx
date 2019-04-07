@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import CellView from './cell-view';
+import CellView from './cell';
 
 const defaultTableStyle: CSSProperties = {
   width: '100%',

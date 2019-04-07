@@ -32,6 +32,14 @@ declare interface IViewTreeItem {
   children?: IViewTreeItem[];
 }
 
+declare interface IViewTreeItemWithMeta<T> extends IViewTreeItem{
+  meta: T;
+}
+
+declare interface IViewTreeItemWithParent<P> extends IViewTreeItem {
+  parent: P;
+}
+
 declare interface IRootViewTreeItem extends IViewTreeItem {
   name: 'root';
 }

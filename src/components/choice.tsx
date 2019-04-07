@@ -1,11 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import rendererMapper from './renderer-mapper';
 
 interface IChoiceViewProps {
   data: IChoice;
 }
 
-export default function ChoiceView(props: IChoiceViewProps) {
+export default function ChoiceView(props: IChoiceViewProps): JSX.Element {
   return <div>{props.data.children.map(rendererMapper)}</div>;
 }

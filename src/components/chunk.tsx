@@ -35,15 +35,14 @@ function splitChunk(chunk: string, segments: ISegment[]): JSX.Element[] {
   const str: JSX.Element[] = segments.map((seg: ISegment, i: number) => {
     const {font_color, font_name, font_size, styles, begin, offset} = seg.data;
 
-    const modifidedStyle: CSSProperties = {
+    const modifiedStyle: CSSProperties = {
       ...defaultSplittedStyle,
       color: toRGB(font_color),
       fontFamily: font_name,
-      fontSize: `${font_size}px`,
       ...mergeSegmentStyles(styles),
     };
 
-    return <span style={modifidedStyle} key={i}>
+    return <span style={modifiedStyle} key={i}>
       {chunk.substring(begin, begin + offset) || ' '}
     </span>;
   });

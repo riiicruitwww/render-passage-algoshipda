@@ -1,5 +1,5 @@
 import React from 'react';
-import TableView from './table-view';
+import TableView from './table';
 
 const messageDataKeys: Array<keyof IMessageData> = ['name', 'text', 'time'];
 
