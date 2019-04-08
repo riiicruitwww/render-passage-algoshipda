@@ -12,12 +12,14 @@ function buildTable({ table_attrs, children }: ITable): JSX.Element[] {
   for (let i = 0; i < r; ++i) {
     const row = [];
     for (let j = 0; j < c; ++j) {
-      row.push(<CellView
-        key={j}
-        width={ratio[j]}
-        border={has_border}
-        data={children[i * c + j]}
-      />);
+      row.push((
+        <CellView
+          key={j}
+          width={ratio[j]}
+          border={has_border}
+          data={children[i * c + j]}
+        />
+      ));
     }
     table.push(<tr key={i}>{row}</tr>);
   }
@@ -29,7 +31,9 @@ interface ITableViewProps {
 }
 
 export default function TableView({ data: tableData }: ITableViewProps): JSX.Element {
-  return <table style={defaultTableStyle}>
-    <tbody>{buildTable(tableData)}</tbody>
-  </table>;
+  return (
+    <table style={defaultTableStyle}>
+      <tbody>{buildTable(tableData)}</tbody>
+    </table>
+  );
 }

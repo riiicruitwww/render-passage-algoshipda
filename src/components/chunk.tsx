@@ -42,9 +42,11 @@ function splitChunk(chunk: string, segments: ISegment[]): JSX.Element[] {
       ...mergeSegmentStyles(styles),
     };
 
-    return <span style={modifiedStyle} key={i}>
-      {chunk.substring(begin, begin + offset) || ' '}
-    </span>;
+    return (
+      <span style={modifiedStyle} key={i}>
+        {chunk.substring(begin, begin + offset) || ' '}
+      </span>
+    );
   });
   return str;
 }

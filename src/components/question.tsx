@@ -28,8 +28,10 @@ export default function QuestionView(props: IQuestionViewProps): JSX.Element {
   const rendererMapper = rendererMapperWithParent(props.data);
 
   const questions = props.data.view_tree.children.map(rendererMapper);
-  return <div style={modifiedQuestionStyle}>
-    <span style={defaultNumberStyle}>{props.data.order + 1}.&nbsp;</span>
-    {questions}
-  </div>;
+  return (
+    <div style={modifiedQuestionStyle}>
+      <span style={defaultNumberStyle}>{props.data.order + 1}.&nbsp;</span>
+      {questions}
+    </div>
+  );
 }

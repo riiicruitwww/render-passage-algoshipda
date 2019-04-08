@@ -49,9 +49,11 @@ export default connect(
     border: `1px solid ${buttonDisabled ? 'lightgrey' : 'blue'}`,
   };
 
-  return <div style={defaultAppStyle}>
-    {passages}
-    {questions}
-    <button onClick={props.onSubmit} disabled={buttonDisabled} style={modifiedButtonStyle}>Submit</button>
-  </div>;
+  return (
+    <div style={defaultAppStyle}>
+      {passages}
+      {questions}
+      <button onClick={props.onSubmit} disabled={buttonDisabled} style={modifiedButtonStyle}>Submit</button>
+    </div>
+  );
 });

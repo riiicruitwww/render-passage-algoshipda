@@ -10,7 +10,9 @@ export default function QuestionAreaView(props: IQuestionAreaViewProps): JSX.Ele
     marginBottom: '5px',
   };
 
-  return <div style={defaultQuestionAreaStyle}>
-    {props.data.children.map(rendererMapper)}
-  </div>;
+  return (
+    <div style={defaultQuestionAreaStyle}>
+      {props.data.children.map(rendererMapper)}
+    </div>
+  );
 }

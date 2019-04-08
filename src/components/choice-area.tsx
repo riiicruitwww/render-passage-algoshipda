@@ -26,20 +26,20 @@ export default connect(
   };
 
   const choiceAreas = props.data.children.map((c: IChoice, i: number) => {
-    return <div
-      style={defaultChoiceWrapperStyle}
-      key={i}
-    >
-      <input
-        checked={props.data.parent.selected === i}
-        name={(props.data.parent.id).toString()}
-        style={defaultRadioStyle}
-        type="radio"
-        onChange={props.onChoiceSelected(props.data.parent.id, i)}
-      />{rendererMapper(c, i)}
-    </div>;
+    return (
+      <div
+        style={defaultChoiceWrapperStyle}
+        key={i}
+      >
+        <input
+          checked={props.data.parent.selected === i}
+          name={(props.data.parent.id).toString()}
+          style={defaultRadioStyle}
+          type="radio"
+          onChange={props.onChoiceSelected(props.data.parent.id, i)}
+        />{rendererMapper(c, i)}
+      </div>
+    );
   });
-  return <div>
-    {choiceAreas}
-  </div>;
+  return <div>{choiceAreas}</div>;
 });

@@ -25,9 +25,11 @@ function init() {
   const store: Store = createStore(reducer);
 
   ReactDOM.render(
-    <Provider store={store}>
-      <App/>
-    </Provider>,
+    (
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    ),
     document.querySelector('.app'),
   );
 }

@@ -5,6 +5,6 @@
     "no-submodule-imports": [true, "rxjs"],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "jsx-wrap-multiline": false
+    "jsx-wrap-multiline": true
   }
 }
