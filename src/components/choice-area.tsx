@@ -1,22 +1,12 @@
 import React, { CSSProperties } from 'react';
-import { Dispatch } from 'redux';
-import { connect } from 'react-redux';
 import rendererMapper from './renderer-mapper';
-import { choiceSelected } from '../actions';
 
 interface IChoiceAreaViewProps {
   data: IChoiceArea;
   onChoiceSelected(id: number, i: number): () => void;
 }
 
-export default connect(
-  null,
-  (dispatch: Dispatch) => {
-    return {
-      onChoiceSelected: (id: number, i: number) => () => dispatch(choiceSelected(id, i)),
-    };
-  },
-)(function ChoiceAreaView(props: IChoiceAreaViewProps): JSX.Element {
+export default function ChoiceAreaView(props: IChoiceAreaViewProps): JSX.Element {
   const defaultRadioStyle: CSSProperties = {
     float: 'left',
   };
@@ -42,4 +32,4 @@ export default connect(
     );
   });
   return <div>{choiceAreas}</div>;
-});
+}

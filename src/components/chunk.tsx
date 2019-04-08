@@ -1,5 +1,4 @@
 import React, { CSSProperties } from 'react';
-import { connect } from 'react-redux';
 
 const segmentStyleToCss: {[k in SegmentStyle]: CSSProperties} = {
   bold: {
@@ -56,13 +55,7 @@ interface IChunkViewProps {
   chunk: string;
 }
 
-export default connect(
-  (state: IAppState, { data: { type, chunk_id } }: { data: IChunkRef }) => {
-    return {
-      chunk: state.chunkMap[chunk_id][type],
-    };
-  },
-)(function ChunkView({ data, chunk }: IChunkViewProps): JSX.Element {
+export default function ChunkView({ data, chunk }: IChunkViewProps): JSX.Element {
   const children: ISegment[] = data.children.length > 0
     ? data.children
     : [{
@@ -81,4 +74,4 @@ export default connect(
 
   const splittedChunk = splitChunk(chunk, children);
   return <div style={defaultChunkStyle}>{splittedChunk}</div>;
-});
+}

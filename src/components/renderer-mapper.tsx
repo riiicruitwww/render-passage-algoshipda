@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import ParagraphView from './paragraph';
-import ChunkView from './chunk';
+import ChunkView from './chunk-container';
 import TableView from './table';
 import MessagesView from './messages';
 import QuestionAreaView from './question-area';
-import ChoiceAreaView from './choice-area';
+import ChoiceAreaView from './choice-area-container';
 import { ConnectedComponentClass } from 'react-redux';
 import ChoiceView from './choice';
 

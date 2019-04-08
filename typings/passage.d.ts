@@ -3,16 +3,16 @@ declare type ViewTreeName = 'root' | 'paragraph'
   | 'table' | 'chunk_ref' | 'segment'
   | 'cell' | 'messages' | 'message'
   | 'question_area' | 'choice_area' | 'choice'; 
-declare type RiiidFontColor = 'black'; // ??
-declare type RiiidFontSize = 'm'; // ??
+declare type RiiidFontColor = 'black';
+declare type RiiidFontSize = 'm';
 declare type SegmentStyle = 'bold' | 'underline';
 
-declare interface IRStyle {
+declare interface IRiiidStyle {
   text_align?: 'left' | 'center' | 'right',
   numbering?: string,
 }
 
-declare type IChunk = {
+declare interface IChunk {
   [k: string]: string | number;
   eqid: string;
   id: number;
@@ -42,7 +42,7 @@ declare interface IRootViewTreeItem extends IViewTreeItem {
 
 declare interface IParagraph extends IViewTreeItem {
   name: 'paragraph';
-  style: IRStyle;
+  style: IRiiidStyle;
 }
 
 declare interface ICell extends IViewTreeItem {
@@ -58,7 +58,7 @@ declare interface ITableAttrs {
 
 declare interface ITable extends IViewTreeItem {
   name: 'table';
-  style?: IRStyle;
+  style?: IRiiidStyle;
   table_attrs: ITableAttrs;
   children: ICell[];
 }

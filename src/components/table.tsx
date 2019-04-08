@@ -17,7 +17,7 @@ function buildTable({ table_attrs, children }: ITable): JSX.Element[] {
           key={j}
           width={ratio[j]}
           border={has_border}
-          data={children[i * c + j]}
+          cell={children[i * c + j]}
         />
       ));
     }

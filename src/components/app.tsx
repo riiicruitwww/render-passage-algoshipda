@@ -1,9 +1,6 @@
 import React, { CSSProperties } from 'react';
-import { connect } from 'react-redux';
 import Passage from './passage';
 import QuestionView from './question';
-import { Dispatch } from 'redux';
-import { submit } from '../actions';
 
 interface IAppProps {
   fetched: boolean;
@@ -26,16 +23,7 @@ const defaultButtonStyle: CSSProperties = {
   marginBottom: '10px',
 };
 
-export default connect(
-  (state: IAppState) => {
-    return state;
-  },
-  (dispatch: Dispatch) => {
-    return {
-      onSubmit: () => dispatch(submit()),
-    };
-  },
-)(function App(props: IAppProps) {
+export default function App(props: IAppProps) {
   const passages = props.passages.map((p: IPassage, i: number) => <Passage key={i} data={p} />);
   const questions = props.questions.map((q: IQuestion, i: number) => {
     return <QuestionView key={i} data={q}/>;
@@ -56,4 +44,4 @@ export default connect(
       <button onClick={props.onSubmit} disabled={buttonDisabled} style={modifiedButtonStyle}>Submit</button>
     </div>
   );
-});
+}
