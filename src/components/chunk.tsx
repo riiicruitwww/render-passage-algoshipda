@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import { toRGB } from '../utils';
 
 const segmentStyleToCss: {[k in SegmentStyle]: CSSProperties} = {
   bold: {
@@ -20,10 +21,6 @@ export function mergeSegmentStyles(styles: SegmentStyle[]) {
       ...segmentStyleToCss[s],
     };
   }, {});
-}
-
-function toRGB([r, g, b]: [number, number, number]) {
-  return `rgb(${r}, ${g}, ${b})`;
 }
 
 function splitChunk(chunk: string, segments: ISegment[]): JSX.Element[] {
