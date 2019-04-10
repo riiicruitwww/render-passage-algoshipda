@@ -1,0 +1,72 @@
+{
+  "name": "render-passage-algoshipda",
+  "version": "0.0.1",
+  "description": "## 절차 Riiid는 지원자분의 역량과 fit을 효율적으로 파악하기 위하여, 상호적인 기술면접을 진행하고자 합니다. 주어진 시간까지 1차 작업을 하고 현 Riiid 개발자들의 feedback을 반영하여 최종적으로 작업을 하는 방식입니다. 면접과정을 통하여 지원자분 또한 Riiid 웹개발팀의 협업 과정에 대하여 알아가실수 있기 바랍니다.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --config webpack.dev.js --watch",
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riiicruitwww/render-passage-algoshipda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riiicruitwww/render-passage-algoshipda/issues"
+  },
+  "homepage": "https://github.com/riiicruitwww/render-passage-algoshipda#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "rxjs": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.10",
+    "@types/react-dom": "^16.8.3",
+    "@types/react-redux": "^7.0.6",
+    "@types/redux": "^3.6.0",
+    "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.7.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-jest": "^24.0.1",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.15.0",
+    "tslint-react": "^4.0.0",
+    "tslint-webpack-plugin": "^2.0.4",
+    "typescript": "^3.4.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-merge": "^4.2.1"
+  },
+  "jest": {
+    "testRegex": "\\.spec\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "tsx"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "warnOnly": true
+        }
+      }
+    },
+    "preset": "ts-jest",
+    "testMatch": null
+  }
+}
